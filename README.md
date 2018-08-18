@@ -1,5 +1,9 @@
 # barbell-hero-backend
 
+## Requirements
+
+- Docker
+
 ## Description
 
 Barbell Hero Backend
@@ -13,6 +17,9 @@ $ npm install
 ## Running the app
 
 ```bash
+# docker
+$ docker-compose up
+
 # development
 $ npm run start
 
