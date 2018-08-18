@@ -1,6 +1,7 @@
 import { Environment } from './environment';
 
-const devEnvironment: Environment = {
+export const developmentEnvironment: Environment = {
+  name: 'development',
   dbConnection: {
     type: 'postgres',
     host: 'db',
@@ -12,5 +13,3 @@ const devEnvironment: Environment = {
     synchronize: true
   }
 };
-
-export default devEnvironment;
