@@ -20,12 +20,6 @@ $ npm install
 # docker
 $ docker-compose up
 
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
 # production mode
 npm run start:prod
 ```
