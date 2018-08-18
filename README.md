@@ -17,7 +17,7 @@ $ npm install
 ## Running the app
 
 ```bash
-# docker
+# development
 $ docker-compose up
 
 # production mode

@@ -1,15 +1,21 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { CreateWorkoutDto } from './create-workout-dto';
+import { WorkoutService } from '../workout.service';
+import { Workout } from '../workout.entity';
 
 @Controller('workout')
 export class WorkoutController {
+  constructor(private service: WorkoutService) { }
+
   @Get()
-  findAll() {
-    return 'This finds all workouts, yeah!';
+  async findAll() {
+    return await this.service.findAll();
   }
 
   @Post()
-  create(@Body() createWorkoutDto: CreateWorkoutDto) {
-    return 'This creates a workout with name ' + createWorkoutDto.name;
+  async create(@Body() createWorkoutDto: CreateWorkoutDto) {
+    const workout = new Workout();
+    Object.assign(workout, createWorkoutDto);
+    return await this.service.create(workout);
   }
 }
