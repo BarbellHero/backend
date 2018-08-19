@@ -21,7 +21,7 @@ $ npm install
 $ docker-compose up
 
 # production mode
-npm run start:prod
+npm run start
 ```
 
 ## Test

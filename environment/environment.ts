@@ -15,7 +15,6 @@ environments.forEach((env) => {
 });
 
 const nodeEnv = process.env.NODE_ENV || 'development';
-// tslint:disable-next-line:no-var-requires
 environment = environmentMap[nodeEnv];
 
 export interface Environment {
