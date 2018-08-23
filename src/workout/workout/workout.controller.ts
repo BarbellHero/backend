@@ -1,11 +1,15 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { CreateWorkoutDto } from './create-workout-dto';
+import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { WorkoutDto } from '../workout-dto';
 import { WorkoutService } from '../workout.service';
-import { Workout } from '../workout.entity';
 
 @Controller('workout')
 export class WorkoutController {
   constructor(private service: WorkoutService) { }
+
+  @Get(':id')
+  async find(@Param('id') id: number) {
+    return await this.service.find(id);
+  }
 
   @Get()
   async findAll() {
@@ -13,9 +17,17 @@ export class WorkoutController {
   }
 
   @Post()
-  async create(@Body() createWorkoutDto: CreateWorkoutDto) {
-    const workout = new Workout();
-    Object.assign(workout, createWorkoutDto);
-    return await this.service.create(workout);
+  async create(@Body() createWorkoutDto: WorkoutDto) {
+    return await this.service.create(createWorkoutDto);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: number, @Body() updateWorkoutDto: WorkoutDto) {
+    return await this.service.update(id, updateWorkoutDto);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: number) {
+    return await this.service.delete(id);
   }
 }
